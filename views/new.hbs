@@ -1,0 +1,72 @@
+<div class="container">
+  <form action="/records/new" method="POST">
+    <div class="mb-3 mt-3 form-group">
+      <label for="id" class="form-label">id</label>
+      <input
+        class="form-control"
+        id="id"
+        type="number"
+        placeholder="id(請輸入數字)"
+        name="id"
+        maxlength="20"
+        required="required"
+      />
+    </div>
+    <div class="mb-3 form-group">
+      <label for="spentFor" class="form-label">spentFor</label>
+      <input
+        class="form-control"
+        id="spentFor"
+        type="text"
+        placeholder="請簡短描述花費內容"
+        name="spentFor"
+        maxlength="20"
+        required="required"
+      />
+    </div>
+    <div class="mb-3 form-group">
+      <label for="date" class="form-label">date</label>
+      <input
+        id="date"
+        class="form-control"
+        type="text"
+        placeholder="請輸入花費日期 ex: 2000/12/01"
+        name="date"
+        pattern="^2\d{3}\/\d{2}\/\d{2}$"
+        required="required"
+      />
+    </div>
+    <div class="mb-3 form-group">
+      <label for="amount" class="form-label">amount</label>
+      <input
+        class="form-control"
+        id="amount"
+        type="test"
+        placeholder="請輸入花費金額 1~9999999999"
+        name="amount"
+        pattern="^[1-9]\d{0,9}$"
+        required="required"
+      />
+    </div>
+    <div class="mb-3 form-group">
+      <label for="categoryid" class="form-label">categoryid</label>
+      <input
+        class="form-control"
+        id="categoryid"
+        type="text"
+        placeholder="請輸入數字 1代表家居 2代表交通 3代表娛樂 4代表飲食 5代表其他"
+        name="categoryid"
+        pattern="^[1-5]$"
+        required="required"
+      />
+    </div>
+    <div style="display:flex;"><button
+        type="submit"
+        class="btn btn-info me-3"
+      >Create</button>
+      <a href="/"><button
+          type="button"
+          class="btn btn-info"
+        >home</button></a></div>
+  </form>
+</div>

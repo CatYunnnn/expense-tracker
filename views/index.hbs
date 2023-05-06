@@ -1,0 +1,68 @@
+<div class="container" style="display:flex; justify-content:space-between;">
+  <div class="dropdown">
+    <button
+      class="btn btn-secondary dropdown-toggle"
+      type="button"
+      id="dropdownMenuButton1"
+      data-bs-toggle="dropdown"
+      aria-expanded="false"
+    >
+      類別
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <li><a class="dropdown-item" href="/">全部</a></li>
+      <li><a class="dropdown-item" href="/house">家居物業</a></li>
+      <li><a class="dropdown-item" href="/transportation">交通出行</a></li>
+      <li><a class="dropdown-item" href="/entertainer">休閒娛樂</a></li>
+      <li><a class="dropdown-item" href="/food">餐飲食品</a></li>
+      <li><a class="dropdown-item" href="/others">其他</a></li>
+    </ul>
+  </div>
+  <a href="/records/new"><button
+      type="button"
+      class="btn btn-info"
+    >按我以新增</button></a>
+  <h3>Tatal Amount:{{totalAmount}}元</h3>
+</div>
+<div class="container mt-5">
+  <div class="row">
+    {{#each records}}
+      <ul class="list-group">
+        <li class="list-group-item mb-3">
+          <div
+            style="display:flex; align-items:center; justify-content:space-between;"
+          >
+            <div style="display:flex;align-items:center;">
+              <i class="fa-solid {{this.iconUrl}} me-3"></i>
+              <div class="me-3">{{this.id}}</div>
+              <div class="me-3">{{this.spentFor}}</div>
+              <div class="me-3">{{this.date}}</div>
+              <div class="me-5">{{this.amount}}</div>
+            </div>
+            <div style="display:flex;align-items:center;">
+              <a
+                href="/records/{{this._id}}/edit"
+                class="text-secondary"
+              ><button type="button" class="btn btn-info me-1">Edit</button></a>
+
+              <form
+                action="./records/{{this._id}}?_method=DELETE"
+                method="POST"
+                style="align-items:center;"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-danger mt-3"
+                  data-bs-toggle="modal"
+                  data-bs-target="#staticBackdrop"
+                  onclick="return confirm('確定要刪除嗎?')"
+                >Delete</button>
+              </form>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    {{/each}}
+  </div>
+</div>
