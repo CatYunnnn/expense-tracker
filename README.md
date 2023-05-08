@@ -43,7 +43,7 @@ npm install
 3.設定環境變數
 
 ```
-MONGODB_URI=mongodb+srv://alpha:camp@cluster0.oox40uh.mongodb.net/expense?retryWrites=true&w=majority
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.oox40uh.mongodb.net/expense?retryWrites=true&w=majority
 ```
 
 4.產出種子資料
