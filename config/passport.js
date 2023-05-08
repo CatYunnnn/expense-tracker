@@ -16,7 +16,7 @@ module.exports = (app) => {
           if (!user) {
             console.log("not yet");
             return done(null, false, {
-              message: "This user have't registered yet!",
+              message: "This user haven't registered yet!",
             });
           }
           return bcrypt.compare(password, user.password).then((isMatch) => {
