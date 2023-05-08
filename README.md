@@ -84,7 +84,3 @@ password : 000000
 - Connect-flash 0.1.1
 - Passport 0.6.0
 - Passport-local 1.0.0
-
-```
-
-```
