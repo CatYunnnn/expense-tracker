@@ -17,18 +17,9 @@ router.get("/", (req, res) => {
     .sort({ name: "asc" })
     .then((records) => {
       const processedRecords = records.map((record) => {
-        // 依據 categoryid 設定 iconUrl 屬性
-        if (record.categoryid === "1") {
-          record.iconUrl = CATEGORY.家居物業;
-        } else if (record.categoryid === "2") {
-          record.iconUrl = CATEGORY.交通出行;
-        } else if (record.categoryid === "3") {
-          record.iconUrl = CATEGORY.休閒娛樂;
-        } else if (record.categoryid === "4") {
-          record.iconUrl = CATEGORY.餐飲食品;
-        } else if (record.categoryid === "5") {
-          record.iconUrl = CATEGORY.其他;
-        }
+        const cateArr = Object.values(CATEGORY);
+        let temp = Number(record.categoryid);
+        record.iconUrl = cateArr[temp - 1];
         return record;
       });
       totalAmount = processedRecords.reduce(

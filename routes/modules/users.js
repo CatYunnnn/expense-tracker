@@ -10,6 +10,14 @@ router.get("/login", (req, res) => {
 
 router.post(
   "/login",
+  (req, res, next) => {
+    const { name, password } = req.body;
+    if (!name || !password) {
+      req.flash("warning_msg", "所有欄位都是必填。");
+      return res.redirect("/users/login");
+    }
+    next();
+  },
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/users/ouo",
@@ -19,7 +27,7 @@ router.post(
 
 router.get("/ouo", (req, res) => {
   req.flash("warning_msg", "帳號或密碼錯誤。");
-  res.redirect("/users/new");
+  res.redirect("/users/login");
 });
 
 router.get("/logout", function (req, res, next) {
